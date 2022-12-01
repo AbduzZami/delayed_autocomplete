@@ -26,11 +26,9 @@ Import the following package in your dart file
 import 'package:delayed_autocomplete/delayed_autocomplete.dart';
 ```
 
-# Then Usage
+## Then Usage
 
-```dart
     DeyaledAutocomplete(
-        delayinMilliseconds: 1000,
         itemWidget: (dynamic object) {
           String name = object as String;
           return Container(
@@ -57,7 +55,6 @@ import 'package:delayed_autocomplete/delayed_autocomplete.dart';
           return finallist;
         },
       )
-```
 
 <!--
 # Video Tutorial
