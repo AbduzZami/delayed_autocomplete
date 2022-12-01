@@ -1,5 +1,5 @@
 name: delayed_autocomplete
-description: A new Flutter package project.
+description: A simple autocomplete widget for Flutter that shows suggestion with a delay.
 version: 0.0.1
 homepage: https://github.com/AbduzZami/delayed_autocomplete.git
 
