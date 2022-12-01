@@ -77,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: DeyaledAutocomplete(
+        delayinMilliseconds: 1000,
         itemWidget: (dynamic object) {
           String name = object as String;
           return Container(

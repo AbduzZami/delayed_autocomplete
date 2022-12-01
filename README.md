@@ -1,15 +1,16 @@
-A flutter place search and location picker plugin that uses Open Street Map.
-it is completely free and easy to use.
+A simple autocomplete widget for Flutter that shows suggestion with a delay.
 
 ## Features
 
-- Pick location from map
-- Search location by places
-- Easy to use
+- Delay for showing suggestions
+- Easy to customize design
+- Easy to use apis
 
+<!--
 ## Demo
 
 ![open street map search and pick](https://user-images.githubusercontent.com/69592754/179368498-fe392cdb-c321-46e8-ac4d-6b816e0a3758.png)
+-->
 
 <!-- ## Help Maintenance
 
@@ -17,57 +18,48 @@ I've been maintaining quite many repos these days and burning out slowly. If you
 
 <a href="https://www.buymeacoffee.com/RtrHv1C" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a> -->
 
-## Objective
-
-This lib was designed to use open street map to set location on Flutter applications for all platforms.
-
 ## Getting Started
 
 Import the following package in your dart file
 
 ```dart
-import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
+import 'package:delayed_autocomplete/delayed_autocomplete.dart';
 ```
-
-To use is simple, just call the widget bellow. You need to pass the default center position of the map and a onPicked method to get the picked position from the map.
-
-    OpenStreetMapSearchAndPick(
-            center: LatLong(23, 89),
-            buttonColor: Colors.blue,
-            buttonText: 'Set Current Location',
-            onPicked: (pickedData) {
-            })
 
 # Then Usage
 
-Now if you press Set Current Loatiion button, you will get the pinned location by onPicked method.
+```dart
+    DeyaledAutocomplete(
+        delayinMilliseconds: 1000,
+        itemWidget: (dynamic object) {
+          String name = object as String;
+          return Container(
+            height: 50,
+            child: Center(
+              child: Text(name),
+            ),
+          );
+        },
+        toDo: (String suggestion) {
+          List<String> suggestions = [
+            "Apple",
+            "Banana",
+            "Orange",
+            "Pineapple",
+            "Mango"
+          ];
+          List<String> finallist = [];
+          for (String s in suggestions) {
+            if (s.toLowerCase().contains(suggestion.toLowerCase())) {
+              finallist.add(s);
+            }
+          }
+          return finallist;
+        },
+      )
+```
 
-In the onPicked method you will receive pickedData.
-
-pickedData has two properties.
-
-1. latLong
-2. address
-
-latLong has two more properties.
-
-1. latitude
-2. longitude
-
-For example
-
-    OpenStreetMapSearchAndPick(
-            center: LatLong(23, 89),
-            buttonColor: Colors.blue,
-            buttonText: 'Set Current Location',
-            onPicked: (pickedData) {
-              print(pickedData.latLong.latitude);
-              print(pickedData.latLong.longitude);
-              print(pickedData.address);
-            })
-
-You can get latitude, longitude and address like that.
-
+<!--
 # Video Tutorial
 
 Click on the image below to view a video tutorial. It will redirect you to a youtube video.
@@ -79,3 +71,4 @@ Click on the image below to view a video tutorial. It will redirect you to a you
 - Video 2
 
 [![Click here to view the tutorial](https://img.youtube.com/vi/kZRrH3UlxeU/0.jpg)](https://www.youtube.com/watch?v=kZRrH3UlxeU)
+-->
