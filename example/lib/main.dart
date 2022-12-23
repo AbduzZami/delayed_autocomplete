@@ -77,7 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: DeyaledAutocomplete(
+        // how much time you wanna wait before getting and showing suggestions
         delayinMilliseconds: 1000,
+        hintText: "Search",
+        borderColor: Colors.blue,
+        // this is the widget that will be shown in the list
         itemWidget: (dynamic object) {
           String name = object as String;
           return Container(
@@ -101,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
               finallist.add(s);
             }
           }
-          return finallist;
+          return finallist; // this list's items must be of same type as the object you passed in the itemWidget
         },
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

@@ -11,12 +11,14 @@ class DeyaledAutocomplete extends StatefulWidget {
   final Widget Function(dynamic object) itemWidget;
   final int delayinMilliseconds;
   final Color borderColor;
+  final String hintText;
   const DeyaledAutocomplete(
       {super.key,
       required this.toDo,
       required this.itemWidget,
       this.borderColor = Colors.blue,
-      this.delayinMilliseconds = 500});
+      this.delayinMilliseconds = 500,
+      this.hintText = 'Search'});
 
   @override
   State<DeyaledAutocomplete> createState() => _DeyaledAutocompleteState();
@@ -41,7 +43,7 @@ class _DeyaledAutocompleteState extends State<DeyaledAutocomplete> {
             controller: _searchController,
             focusNode: _focusNode,
             decoration: InputDecoration(
-              hintText: 'Search Location',
+              hintText: widget.hintText,
               border: inputBorder,
               focusedBorder: inputFocusBorder,
             ),

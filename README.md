@@ -29,6 +29,11 @@ import 'package:delayed_autocomplete/delayed_autocomplete.dart';
 ## Then Usage
 
     DeyaledAutocomplete(
+        // how much time you wanna wait before getting and showing suggestions
+        delayinMilliseconds: 1000,
+        hintText: "Search",
+        borderColor: Colors.blue,
+        // this is the widget that will be shown in the list
         itemWidget: (dynamic object) {
           String name = object as String;
           return Container(
@@ -52,7 +57,7 @@ import 'package:delayed_autocomplete/delayed_autocomplete.dart';
               finallist.add(s);
             }
           }
-          return finallist;
+          return finallist; // this list's items must be of same type as the object you passed in the itemWidget
         },
       )
 
