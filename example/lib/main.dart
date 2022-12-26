@@ -62,6 +62,11 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Future<List> _getSuggestions(String suggestion) async {
+    await Future.delayed(Duration(seconds: 2));
+    return ["Apple", "Banana", "Orange", "Pineapple", "Mango"];
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -91,21 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           );
         },
-        toDo: (String suggestion) {
-          List<String> suggestions = [
-            "Apple",
-            "Banana",
-            "Orange",
-            "Pineapple",
-            "Mango"
-          ];
-          List<String> finallist = [];
-          for (String s in suggestions) {
-            if (s.toLowerCase().contains(suggestion.toLowerCase())) {
-              finallist.add(s);
-            }
-          }
-          return finallist; // this list's items must be of same type as the object you passed in the itemWidget
+        toDo: (String suggestion) async {
+          return await _getSuggestions(suggestion);
+          // this list's items must be of same type as the object you passed in the itemWidget
         },
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

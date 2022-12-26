@@ -1,3 +1,4 @@
-## 0.0.3
+## 0.0.4
 
 - hintText added
+- Asynchronous loading of data
