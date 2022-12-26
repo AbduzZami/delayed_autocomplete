@@ -43,21 +43,10 @@ import 'package:delayed_autocomplete/delayed_autocomplete.dart';
             ),
           );
         },
-        toDo: (String suggestion) {
-          List<String> suggestions = [
-            "Apple",
-            "Banana",
-            "Orange",
-            "Pineapple",
-            "Mango"
-          ];
-          List<String> finallist = [];
-          for (String s in suggestions) {
-            if (s.toLowerCase().contains(suggestion.toLowerCase())) {
-              finallist.add(s);
-            }
-          }
-          return finallist; // this list's items must be of same type as the object you passed in the itemWidget
+        toDo: (String suggestion) async {
+          //you can call your api here
+          return await _getSuggestions(suggestion);
+          // this list's items must be of same type as the object you passed in the itemWidget
         },
       )
 

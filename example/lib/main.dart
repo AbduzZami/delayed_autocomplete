@@ -97,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         },
         toDo: (String suggestion) async {
+          //you can call your api here
           return await _getSuggestions(suggestion);
           // this list's items must be of same type as the object you passed in the itemWidget
         },
